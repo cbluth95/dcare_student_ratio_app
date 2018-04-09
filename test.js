@@ -5,7 +5,7 @@ function toJson(csvData) {
 
     if(typeof(rows.length) != "") {
         rows.pop();
-        console.log("Removed an Empty Row")
+        console.log("Removed Last Row. Its Empty")
     }
     for (var i = 1; i < rows.length; i++) {
         var record = {};
@@ -46,11 +46,12 @@ function toJson(csvData) {
                     var bDate = obj[i].birthdate;
                     var homeRoom = obj[i].room_1;
                     var pEmail = obj[i].parent_1_email;
+                    console.log(bDate + fName)
 
         
 
                     //Set info
-                    text += fName + " " + lName + " " + bDate + " " + homeRoom + " " + pEmail + "<br>"; // + " " + obj[i].last_name + "<br>" removed last name
+                    text += fName + " " + lName + " " + bDate + " " + homeRoom + " " + pEmail + "<br>" + "<br>"; // + " " + obj[i].last_name + "<br>" removed last name
                     
                     
                 }
