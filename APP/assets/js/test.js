@@ -34,19 +34,18 @@ dataCSV.onreadystatechange = function () {
             var result = toJson(allText);
             var strResult = JSON.stringify(result);
             var obj = JSON.parse(strResult);
-            console.log(result)
 
 
             //Get Child Info
-            var i;
-            var infantFullNames = document.getElementById("chldFullNames");
+
             // var fNames = document.getElementById("chldfNames");
-            var chldAge = document.getElementById("chldAge");
-            var chldAgeUntil = document.getElementById("chldAgeUntil");
+            // var chldAge = document.getElementById("chldAge");
+            // var chldAgeUntil = document.getElementById("chldAgeUntil");
 
 
             for (i = 0; i < obj.length; i++) {
-
+                var id = i;
+                
                 var fName = obj[i].first_name;
                 var lName = obj[i].last_name;
                 var bDate = obj[i].birthdate;
@@ -57,35 +56,69 @@ dataCSV.onreadystatechange = function () {
 
 
                 //Create Elements
-                var fullName = document.createElement("p");
+                // var fullName = document.createElement("p");
                 // var fNameEl = document.createElement("p");
-                var cAge = document.createElement("p");
-                var cAgeUntil = document.createElement("p");
+                // var cAge = document.createElement("p");
+                // var cAgeUntil = document.createElement("p");
 
                 //Set Elements
-                fullName.innerHTML = fName + ' ' + lName;
+                // fullName.innerHTML = fName + ' ' + lName;
                 // fNameEl.innerHTML = fName;
-                cAge.innerHTML = age + 'y';
-                cAgeUntil.innerHTML = ageUntil;
+                // cAge.innerHTML = age + 'y';
+                // cAgeUntil.innerHTML = ageUntil;
 
 
-                //Append Elements
+                //Infant Data
                 if (age === 0) {
-                    infantFullNames.appendChild(fullName);
-                    chldAge.appendChild(cAge);
-                    chldAgeUntil.appendChild(cAgeUntil);
+                    console.log(id)
+
+                    var infantData = document.getElementById("infantData");
+                    //Create container
+                    var trEl = document.createElement("tr");
+                    infantData.appendChild(trEl);
+                    //Infant Data
+                    var trId = document.createElement("th");
+                    trId.innerHTML = '#soon';
+                    trEl.appendChild(trId);
+
+
+                    var trName = document.createElement("th");
+                    trName.innerHTML = fName + ' ' + lName;
+                    trEl.appendChild(trName);
+
+                    var trAge = document.createElement("th");
+                    trAge.innerHTML = age + ' Years Old';
+                    trEl.appendChild(trAge);
+
+                    var trAgeUntil = document.createElement("th");
+                    trAgeUntil.innerHTML = ageUntil;
+                    trEl.appendChild(trAgeUntil);
+
+                    //Toddler
                 } else if (age > 0 && age < 2) {
 
+                    var toddlerData = document.getElementById("toddlerData");
+                    //Create container
+                    var trEl = document.createElement("tr");
+                    toddlerData.appendChild(trEl);
+
+                    //Toddler Data
+                    var trId = document.createElement("th");
+                    trId.innerHTML = '#soon';
+                    trEl.appendChild(trId);
+
+                    var trName = document.createElement("th");
+                    trName.innerHTML = fName + ' ' + lName;
+                    trEl.appendChild(trName);
+
+                    var trAge = document.createElement("th");
+                    trAge.innerHTML = age + ' Years Old';
+                    trEl.appendChild(trAge);
+
+                    var trAgeUntil = document.createElement("th");
+                    trAgeUntil.innerHTML = ageUntil;
+                    trEl.appendChild(trAgeUntil);
                 }
-
-                // fNames.appendChild(fNameEl);
-                // chldAge.appendChild(cAge);
-                // chldAgeUntil.appendChild(cAgeUntil);
-
-                if (cAge.innerHTML == 'NaNy') {
-                    cAge.innerHTML = 'No Birthday Found!'
-                }
-
             }
         }
     }
