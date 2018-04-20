@@ -94,8 +94,33 @@ dataCSV.onreadystatechange = function () {
                     trAgeUntil.innerHTML = ageUntil;
                     trEl.appendChild(trAgeUntil);
 
-                    //Toddler
+                    //Wobblers
                 } else if (age > 0 && age < 2) {
+
+                    var wobblerData = document.getElementById("wobblerData");
+                    //Create container
+                    var trEl = document.createElement("tr");
+                    wobblerData.appendChild(trEl);
+
+                    //Toddler Data
+                    var trId = document.createElement("th");
+                    trId.innerHTML = '#soon';
+                    trEl.appendChild(trId);
+
+                    var trName = document.createElement("th");
+                    trName.innerHTML = fName + ' ' + lName;
+                    trEl.appendChild(trName);
+
+                    var trAge = document.createElement("th");
+                    trAge.innerHTML = age + ' Years Old';
+                    trEl.appendChild(trAge);
+
+                    var trAgeUntil = document.createElement("th");
+                    trAgeUntil.innerHTML = ageUntil;
+                    trEl.appendChild(trAgeUntil);
+                }
+                //Toddlers
+                else if (age > 1 && age < 3) {
 
                     var toddlerData = document.getElementById("toddlerData");
                     //Create container
